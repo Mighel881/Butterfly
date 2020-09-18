@@ -11,6 +11,7 @@ extern BOOL enabled;
 BOOL cursorColorSwitch = NO;
 NSString* customCursorString = @"#147efb";
 NSString* cursorAlphaLevel = @"1.0";
+BOOL smoothCursorMovementSwitch = NO;
 
 // Highlight Color
 BOOL highlightColorSwitch = NO;
@@ -26,3 +27,7 @@ NSString* scrollIndicatorAlphaLevel = @"0.4";
 BOOL pillColorSwitch = NO;
 NSString* customPillString = @"#147efb";
 NSString* pillAlphaLevel = @"1.0";
+
+@interface UITextSelectionView : UIView
+- (UIView *)caretView;
+@end

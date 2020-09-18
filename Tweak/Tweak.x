@@ -28,11 +28,32 @@ BOOL enabled;
 
 }
 
-%end
+- (void)updateSelectionRects {
+    
+    if (smoothCursorMovementSwitch) {
+        [UIView animateWithDuration: 0.2 animations: ^{
+            %orig;
+        }];
+    } else {
+        %orig;
+    }
+    
+}
+
+- (id)dynamicCaret {
+    
+    if (smoothCursorMovementSwitch)
+        return [self caretView];
+    else
+        return %orig;
+
+}
 
 %end
 
-%group Highlight
+%end
+
+%group HighlightColor
 
 %hook UITextInputTraits
 
@@ -137,6 +158,7 @@ BOOL enabled;
     [preferences registerBool:&cursorColorSwitch default:NO forKey:@"cursorColor"];
     [preferences registerObject:&customCursorString default:@"#147efb" forKey:@"customCursorColor"];
     [preferences registerObject:&cursorAlphaLevel default:@"1.0" forKey:@"cursorAlpha"];
+    [preferences registerBool:&smoothCursorMovementSwitch default:NO forKey:@"smoothCursorMovement"];
 
     // Highlight Color
     [preferences registerBool:&highlightColorSwitch default:NO forKey:@"highlightColor"];
@@ -155,7 +177,7 @@ BOOL enabled;
 
     if (enabled) {
         if (cursorColorSwitch) %init(Cursor);
-        if (highlightColorSwitch) %init(Highlight);
+        if (highlightColorSwitch) %init(HighlightColor);
         if (scrollIndicatorColorSwitch) %init(ScrollIndicator);
         if (pillColorSwitch) %init(StatusBarPill);
     }

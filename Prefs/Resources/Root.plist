@@ -87,6 +87,20 @@
 			<key>PostNotification</key>
 			<string>love.litten.butterflypreferences/ReloadPrefs</string>
 		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>love.litten.butterflypreferences</string>
+			<key>key</key>
+			<string>smoothCursorMovement</string>
+			<key>label</key>
+			<string>Smooth Cursor Movement</string>
+			<key>PostNotification</key>
+			<string>love.litten.butterflypreferences/ReloadPrefs</string>
+		</dict>
 
 		<dict>
 			<key>cell</key>
